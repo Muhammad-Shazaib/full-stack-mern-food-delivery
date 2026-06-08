@@ -4,7 +4,12 @@ dotenv.config();
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import dns from "dns"
+import foodRouter from './routes/FoodRoutes.js';
+
+
 dns.setServers(["8.8.8.8","0.0.0.0"])
+
+
 // app config
 const app = express();
 const port =  4000;
@@ -15,6 +20,11 @@ app.use(cors());
 
 // db connection
 connectDB();
+
+// api endpoints
+
+app.use('/api/food' , foodRouter);
+app.use('/images', express.static('uploads'));
 
 app.get('/', (req, res) => {
     res.send('ALLAH HO AKBAR!');
