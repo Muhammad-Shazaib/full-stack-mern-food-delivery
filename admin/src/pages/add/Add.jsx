@@ -3,8 +3,7 @@ import "./Add.css";
 import { assets } from "../../assets/assets";
 import axios from "axios";
 
-export const Add = () => {
-  const url = "http://localhost:4000";
+export const Add = ({ url }) => {
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -38,7 +37,9 @@ export const Add = () => {
       });
 
       setImage(false);
+      toast.success(response.data.message);
     } else {
+      toast.error(response.data.message);
     }
   };
 
