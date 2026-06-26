@@ -7,6 +7,7 @@ import dns from "dns";
 import foodRouter from "./routes/FoodRoutes.js";
 import userRouter from "./routes/UserRoutes.js";
 import "dotenv/config.js";
+import cartRouter from "./routes/cartRoute.js";
 
 dns.setServers(["8.8.8.8", "0.0.0.0"]);
 
@@ -26,6 +27,7 @@ connectDB();
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter)
 
 app.get("/", (req, res) => {
   res.send("ALLAH HO AKBAR!");
