@@ -8,6 +8,7 @@ import foodRouter from "./routes/FoodRoutes.js";
 import userRouter from "./routes/UserRoutes.js";
 import "dotenv/config.js";
 import cartRouter from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 dns.setServers(["8.8.8.8", "0.0.0.0"]);
 
@@ -28,6 +29,8 @@ app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter)
+app.use("/api/order", orderRouter)
+
 
 app.get("/", (req, res) => {
   res.send("ALLAH HO AKBAR!");
