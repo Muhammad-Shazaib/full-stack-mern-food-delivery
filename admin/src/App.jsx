@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./compenants/navbar/Navbar";
 import SideBar from "./compenants/sidebar/sideBar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate  } from "react-router-dom";
 import { Add } from "./pages/add/Add";
 import List from "./pages/list/List";
 import Order from "./pages/order/Order";
@@ -19,7 +19,9 @@ const App = () => {
       <hr />
       <div className="app-content">
         <SideBar />
+
         <Routes>
+          <Route path="/" element={<Navigate to="/add" replace />} />
           <Route path="/add" element={<Add url={url} />} />
           <Route path="/list" element={<List url={url} />} />
           <Route path="/orders" element={<Order url={url} />} />
